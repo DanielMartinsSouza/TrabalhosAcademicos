@@ -42,7 +42,7 @@ void BinaryinsertionSort(int a[], int n){
 }
 
 
-//Fun��o para executar o mergesort
+//Funï¿½ï¿½o para executar o mergesort
 void intercala (int p, int q, int r, int v[]) {
   int i, j, k;
   int w[100000];
@@ -123,7 +123,7 @@ void heapsort(int *vet, int n) {
 	}
 }
 
-//Fun��o para usar o heapsort
+//Funï¿½ï¿½o para usar o heapsort
 void peneira(int *vet, int raiz, int fundo) {
 	int pronto, filhoMax, tmp;
 
@@ -261,25 +261,24 @@ void BubbleSort(int vetor[], int tamanho){
 
 int main(){
 	
-	clock_t t; //vari�vel para armazenar tempo
-	int vetor[100000]; //vetor com 100000 posi��es
-	int vetor2[10000]; //vetor com 10000 posi��es
-	int vetor3[1000]; //vetor com 1000 posi��es
-	int vetor4[100]; //vetor com 100 posi��es
-	int vetor5[10]; // vetor com 10 posi��es
-	int a;
-	int v[10] = {9,8,6,1,5,2,6,4,0,6}, i,j,k,n;;
-	int v2[10] = {7, 9, 4, 3, 6, 1, 18, 2, 10, 5};
+	clock_t t; //variï¿½vel para armazenar tempo
+	int vetor[100000]; //vetor com 100000 posiï¿½ï¿½es
+	int vetor2[10000]; //vetor com 10000 posiï¿½ï¿½es
+	int vetor3[1000]; //vetor com 1000 posiï¿½ï¿½es
+	int vetor4[100]; //vetor com 100 posiï¿½ï¿½es
+	int vetor5[10]; // vetor com 10 posiï¿½ï¿½es
+	int v[10] = {9,8,6,1,5,2,6,4,0,6}, i,j,k,n;; //Usado para testar
+	int v2[10] = {7, 9, 4, 3, 6, 1, 18, 2, 10, 5}; //Usado para testar
 	
     
     //Manipulando arquivos txt
     FILE *file;
-	file = fopen("C:\\Users\\T-GAMER\\Desktop\\Relatorio.txt","w"); //Cria arquivo caso n�o exista
-	fprintf(file,"Analise de desempenho de algoritmos de Ordena��o em ms\n");//Escreve no arquivo
+	file = fopen("C:\\Users\\T-GAMER\\Desktop\\Teste.csv","w"); //Cria arquivo caso nï¿½o exista
+	fprintf(file,"Analise de desempenho de algoritmos de Ordenaï¿½ï¿½o em ms\n");//Escreve no arquivo
 	
 	//Vetor Tamanho 10
 	fprintf(file,"\nVetor de Tamanho 10\n");
-	printf("\nVetor de Tamanho10r\n");
+	printf("\nVetor de Tamanho 10\n");
     
     //BinaryinsertionSort
    
@@ -288,6 +287,7 @@ int main(){
     	vetor5[i] = rand();//Cria um vetor com numeros aleatorios
 	}
 	printf("Ordenando Vetor: BinaryInsertionSort\n");
+	t = 0;
 	t = clock(); //armazena tempo
     BinaryinsertionSort(vetor5, 10);
    	t = clock() - t; //tempo final - tempo inicial
@@ -302,6 +302,7 @@ int main(){
     	vetor5[i] = rand();//Cria um vetor com numeros aleatorios
 	}
 	printf("Ordenando Vetor: MergeSort\n");
+	t = 0;
 	t = clock(); //armazena tempo
    	mergesort(0, 10-1, vetor5);
    	t = clock() - t; //tempo final - tempo inicial
@@ -316,6 +317,7 @@ int main(){
     	vetor5[i] = rand();//Cria um vetor com numeros aleatorios
 	}
 	printf("Ordenando Vetor: QuickSort\n");
+	t = 0;
 	t = clock(); //armazena tempo
    	Quick(vetor5, 0, 10-1);
    	t = clock() - t; //tempo final - tempo inicial	
@@ -324,13 +326,14 @@ int main(){
 	fprintf(file, "QuickSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
 
 
-	//Execu��o HeapSort
+	//Execuï¿½ï¿½o HeapSort
 
 	printf("\nCriando Vetor\n");
     for(i=0;i<10;i++){    	
     	vetor5[i] = rand();//Cria um vetor com numeros aleatorios
 	}
-	printf("Ordenando Vetor: HeapSort\n");    
+	printf("Ordenando Vetor: HeapSort\n");
+	t = 0;    
 	t = clock(); //armazena tempo    
 	heapsort(vetor5,10);
 	t = clock() - t; //tempo final - tempo inicial	
@@ -339,12 +342,13 @@ int main(){
 	fprintf(file, "HeapSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
 
 	
-	//Execu��o do BucketSort
+	//Execuï¿½ï¿½o do BucketSort
 	printf("\nCriando Vetor\n");
     for(i=0;i<10;i++){    	
     	vetor5[i] = rand();//Cria um vetor com numeros aleatorios
 	}
-	printf("Ordenando Vetor: BucketSort\n");    
+	printf("Ordenando Vetor: BucketSort\n");
+	t = 0;    
 	t = clock(); //armazena tempo    
 	bucketSort(vetor5,10);
 	t = clock() - t; //tempo final - tempo inicial
@@ -353,14 +357,15 @@ int main(){
 	fprintf(file, "BucketSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
 
 	
-	//Execu��o do selection_sort    
+	//Execuï¿½ï¿½o do selection_sort    
 	printf("\nCriando Vetor\n");
     for(i=0;i<10;i++){    	
     	vetor5[i] = rand();//Cria um vetor com numeros aleatorios
 	} 
-	printf("Ordenando Vetor: SelectionSort\n");   
+	printf("Ordenando Vetor: SelectionSort\n");  
+	t = 0; 
 	t = clock(); //armazena tempo
- 	selection_sort(vetor5,10);//Faz a ordena��o do vetor
+ 	selection_sort(vetor5,10);//Faz a ordenaï¿½ï¿½o do vetor
  	t = clock() - t; //tempo final - tempo inicial
 	
  	printf("Vetor ordenado\n");
@@ -370,15 +375,16 @@ int main(){
 
 	
 	
-	//Execu��o do insertionSort    
+	//Execuï¿½ï¿½o do insertionSort    
 
 	printf("\nCriando Vetor\n");
     for(i=0;i<10;i++){    	
     	vetor5[i] = rand();//Cria um vetor com numeros aleatorios
 	} 
-	printf("Ordenando Vetor: InsertionSort\n");   
+	printf("Ordenando Vetor: InsertionSort\n"); 
+	t = 0;  
 	t = clock(); //armazena tempo
- 	insertionSort(vetor5,10);//Faz a ordena��o do vetor
+ 	insertionSort(vetor5,10);//Faz a ordenaï¿½ï¿½o do vetor
  	t = clock() - t; //tempo final - tempo inicial 
  	
 	
@@ -387,14 +393,15 @@ int main(){
  	fprintf(file, "InsertionSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
  	
 	    
-	//Execu��o do BubbleSort    
+	//Execuï¿½ï¿½o do BubbleSort    
 	printf("\nCriando Vetor\n");
     for(i=0;i<10;i++){    	
     	vetor5[i] = rand();//Cria um vetor com numeros aleatorios
 	} 
-	printf("Ordenando Vetor: BubbleSort\n");   
+	printf("Ordenando Vetor: BubbleSort\n"); 
+	t = 0;  
 	t = clock(); //armazena tempo
- 	BubbleSort(vetor5,10);//Faz a ordena��o do vetor
+ 	BubbleSort(vetor5,10);//Faz a ordenaï¿½ï¿½o do vetor
  	t = clock() - t; //tempo final - tempo inicial 
  	
  	printf("Vetor ordenado\n");
@@ -404,7 +411,7 @@ int main(){
 	
 	//Vetor Tamanho 100
 	fprintf(file,"\nVetor de Tamanho 100\n");
-	printf("\nVetor de Tamanho100r\n");
+	printf("\nVetor de Tamanho 100\n");
     
     //BinaryinsertionSort
    
@@ -413,6 +420,7 @@ int main(){
     	vetor4[i] = rand();//Cria um vetor com numeros aleatorios
 	}
 	printf("Ordenando Vetor: BinaryInsertionSort\n");
+	t = 0;
 	t = clock(); //armazena tempo
     BinaryinsertionSort(vetor4, 100);
    	t = clock() - t; //tempo final - tempo inicial
@@ -427,6 +435,7 @@ int main(){
     	vetor4[i] = rand();//Cria um vetor com numeros aleatorios
 	}
 	printf("Ordenando Vetor: MergeSort\n");
+	t = 0;
 	t = clock(); //armazena tempo
    	mergesort(0, 100-1, vetor4);
    	t = clock() - t; //tempo final - tempo inicial
@@ -441,6 +450,7 @@ int main(){
     	vetor4[i] = rand();//Cria um vetor com numeros aleatorios
 	}
 	printf("Ordenando Vetor: QuickSort\n");
+	t = 0;
 	t = clock(); //armazena tempo
    	Quick(vetor4, 0, 100-1);
    	t = clock() - t; //tempo final - tempo inicial	
@@ -449,13 +459,14 @@ int main(){
 	fprintf(file, "QuickSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
 
 
-	//Execu��o HeapSort
+	//Execuï¿½ï¿½o HeapSort
 
 	printf("\nCriando Vetor\n");
     for(i=0;i<100;i++){    	
     	vetor4[i] = rand();//Cria um vetor com numeros aleatorios
 	}
-	printf("Ordenando Vetor: HeapSort\n");    
+	printf("Ordenando Vetor: HeapSort\n"); 
+	t = 0;   
 	t = clock(); //armazena tempo    
 	heapsort(vetor4,100);
 	t = clock() - t; //tempo final - tempo inicial	
@@ -464,12 +475,13 @@ int main(){
 	fprintf(file, "HeapSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
 
 	
-	//Execu��o do BucketSort
+	//Execuï¿½ï¿½o do BucketSort
 	printf("\nCriando Vetor\n");
     for(i=0;i<100;i++){    	
     	vetor4[i] = rand();//Cria um vetor com numeros aleatorios
 	}
-	printf("Ordenando Vetor: BucketSort\n");    
+	printf("Ordenando Vetor: BucketSort\n"); 
+	t = 0;   
 	t = clock(); //armazena tempo    
 	bucketSort(vetor4,100);
 	t = clock() - t; //tempo final - tempo inicial
@@ -478,14 +490,15 @@ int main(){
 	fprintf(file, "BucketSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
 
 	
-	//Execu��o do selection_sort    
+	//Execuï¿½ï¿½o do selection_sort    
 	printf("\nCriando Vetor\n");
     for(i=0;i<100;i++){    	
     	vetor4[i] = rand();//Cria um vetor com numeros aleatorios
 	} 
-	printf("Ordenando Vetor: SelectionSort\n");   
+	printf("Ordenando Vetor: SelectionSort\n"); 
+	t = 0;  
 	t = clock(); //armazena tempo
- 	selection_sort(vetor4,100);//Faz a ordena��o do vetor
+ 	selection_sort(vetor4,100);//Faz a ordenaï¿½ï¿½o do vetor
  	t = clock() - t; //tempo final - tempo inicial
 	
  	printf("Vetor ordenado\n");
@@ -495,15 +508,16 @@ int main(){
 
 	
 	
-	//Execu��o do insertionSort    
+	//Execuï¿½ï¿½o do insertionSort    
 
 	printf("\nCriando Vetor\n");
     for(i=0;i<100;i++){    	
     	vetor4[i] = rand();//Cria um vetor com numeros aleatorios
 	} 
-	printf("Ordenando Vetor: InsertionSort\n");   
+	printf("Ordenando Vetor: InsertionSort\n"); 
+	t = 0;  
 	t = clock(); //armazena tempo
- 	insertionSort(vetor4,100);//Faz a ordena��o do vetor
+ 	insertionSort(vetor4,100);//Faz a ordenaï¿½ï¿½o do vetor
  	t = clock() - t; //tempo final - tempo inicial 
  	
 	
@@ -512,18 +526,25 @@ int main(){
  	fprintf(file, "InsertionSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
  	
 	    
-	//Execu��o do BubbleSort    
+	//Execuï¿½ï¿½o do BubbleSort    
 	printf("\nCriando Vetor\n");
     for(i=0;i<100;i++){    	
     	vetor4[i] = rand();//Cria um vetor com numeros aleatorios
 	} 
-	printf("Ordenando Vetor: BubbleSort\n");   
+	printf("Ordenando Vetor: BubbleSort\n"); 
+	t = 0;  
 	t = clock(); //armazena tempo
- 	BubbleSort(vetor4,100);//Faz a ordena��o do vetor
+ 	BubbleSort(vetor4,100);//Faz a ordenaï¿½ï¿½o do vetor
  	t = clock() - t; //tempo final - tempo inicial 
  	
  	printf("Vetor ordenado\n");
- 	printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
+ 	
+ 	printf("Valores ordenados\n");
+ 	for(i = 0; i < 100; i++){
+  		printf("%d ", vetor4[i]);
+ 	}
+ 	
+ 	printf("\nTempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));
  	fprintf(file, "BubbleSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
 		
 	
@@ -531,7 +552,7 @@ int main(){
 	
 	//Vetor Tamanho 1000
 	fprintf(file,"\nVetor de Tamanho 1000\n");
-	printf("\nVetor de Tamanho1000r\n");
+	printf("\nVetor de Tamanho 1000\n");
     
     //BinaryinsertionSort
    
@@ -540,6 +561,7 @@ int main(){
     	vetor3[i] = rand();//Cria um vetor com numeros aleatorios
 	}
 	printf("Ordenando Vetor: BinaryInsertionSort\n");
+	t = 0;
 	t = clock(); //armazena tempo
     BinaryinsertionSort(vetor3, 1000);
    	t = clock() - t; //tempo final - tempo inicial
@@ -554,6 +576,7 @@ int main(){
     	vetor3[i] = rand();//Cria um vetor com numeros aleatorios
 	}
 	printf("Ordenando Vetor: MergeSort\n");
+	t = 0;
 	t = clock(); //armazena tempo
    	mergesort(0, 1000-1, vetor3);
    	t = clock() - t; //tempo final - tempo inicial
@@ -568,6 +591,7 @@ int main(){
     	vetor3[i] = rand();//Cria um vetor com numeros aleatorios
 	}
 	printf("Ordenando Vetor: QuickSort\n");
+	t = 0;
 	t = clock(); //armazena tempo
    	Quick(vetor3, 0, 1000-1);
    	t = clock() - t; //tempo final - tempo inicial	
@@ -576,13 +600,14 @@ int main(){
 	fprintf(file, "QuickSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
 
 
-	//Execu��o HeapSort
+	//Execuï¿½ï¿½o HeapSort
 
 	printf("\nCriando Vetor\n");
     for(i=0;i<1000;i++){    	
     	vetor3[i] = rand();//Cria um vetor com numeros aleatorios
 	}
-	printf("Ordenando Vetor: HeapSort\n");    
+	printf("Ordenando Vetor: HeapSort\n"); 
+	t = 0;   
 	t = clock(); //armazena tempo    
 	heapsort(vetor3,1000);
 	t = clock() - t; //tempo final - tempo inicial	
@@ -591,12 +616,13 @@ int main(){
 	fprintf(file, "HeapSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
 
 	
-	//Execu��o do BucketSort
+	//Execuï¿½ï¿½o do BucketSort
 	printf("\nCriando Vetor\n");
     for(i=0;i<1000;i++){    	
     	vetor3[i] = rand();//Cria um vetor com numeros aleatorios
 	}
-	printf("Ordenando Vetor: BucketSort\n");    
+	printf("Ordenando Vetor: BucketSort\n"); 
+	t = 0;   
 	t = clock(); //armazena tempo    
 	bucketSort(vetor3,1000);
 	t = clock() - t; //tempo final - tempo inicial
@@ -605,14 +631,15 @@ int main(){
 	fprintf(file, "BucketSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
 
 	
-	//Execu��o do selection_sort    
+	//Execuï¿½ï¿½o do selection_sort    
 	printf("\nCriando Vetor\n");
     for(i=0;i<1000;i++){    	
     	vetor3[i] = rand();//Cria um vetor com numeros aleatorios
 	} 
-	printf("Ordenando Vetor: SelectionSort\n");   
+	printf("Ordenando Vetor: SelectionSort\n");
+	t = 0;   
 	t = clock(); //armazena tempo
- 	selection_sort(vetor3,1000);//Faz a ordena��o do vetor
+ 	selection_sort(vetor3,1000);//Faz a ordenaï¿½ï¿½o do vetor
  	t = clock() - t; //tempo final - tempo inicial
 	
  	printf("Vetor ordenado\n");
@@ -622,15 +649,16 @@ int main(){
 
 	
 	
-	//Execu��o do insertionSort    
+	//Execuï¿½ï¿½o do insertionSort    
 
 	printf("\nCriando Vetor\n");
     for(i=0;i<1000;i++){    	
     	vetor3[i] = rand();//Cria um vetor com numeros aleatorios
 	} 
-	printf("Ordenando Vetor: InsertionSort\n");   
+	printf("Ordenando Vetor: InsertionSort\n"); 
+	t = 0;  
 	t = clock(); //armazena tempo
- 	insertionSort(vetor3,1000);//Faz a ordena��o do vetor
+ 	insertionSort(vetor3,1000);//Faz a ordenaï¿½ï¿½o do vetor
  	t = clock() - t; //tempo final - tempo inicial 
  	
 	
@@ -639,14 +667,15 @@ int main(){
  	fprintf(file, "InsertionSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
  	
 	    
-	//Execu��o do BubbleSort    
+	//Execuï¿½ï¿½o do BubbleSort    
 	printf("\nCriando Vetor\n");
     for(i=0;i<1000;i++){    	
     	vetor3[i] = rand();//Cria um vetor com numeros aleatorios
 	} 
 	printf("Ordenando Vetor: BubbleSort\n");   
+	t = 0;
 	t = clock(); //armazena tempo
- 	BubbleSort(vetor3,1000);//Faz a ordena��o do vetor
+ 	BubbleSort(vetor3,1000);//Faz a ordenaï¿½ï¿½o do vetor
  	t = clock() - t; //tempo final - tempo inicial 
  	
  	printf("Vetor ordenado\n");
@@ -657,7 +686,7 @@ int main(){
 	
 	//Vetor Tamanho 10000
 	fprintf(file,"\nVetor de Tamanho 10000\n");
-	printf("\nVetor de Tamanho10000r\n");
+	printf("\nVetor de Tamanho 10000\n");
     
     //BinaryinsertionSort
    
@@ -666,10 +695,13 @@ int main(){
     	vetor2[i] = rand();//Cria um vetor com numeros aleatorios
 	}
 	printf("Ordenando Vetor: BinaryInsertionSort\n");
+	t = 0;
 	t = clock(); //armazena tempo
     BinaryinsertionSort(vetor2, 10000);
    	t = clock() - t; //tempo final - tempo inicial
    	printf("Vetor ordenado\n");
+   	
+   	
 	printf("Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Milisegundos
 	fprintf(file, "BinaryInsertionSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
     
@@ -680,6 +712,7 @@ int main(){
     	vetor2[i] = rand();//Cria um vetor com numeros aleatorios
 	}
 	printf("Ordenando Vetor: MergeSort\n");
+	t = 0;
 	t = clock(); //armazena tempo
    	mergesort(0, 10000-1, vetor2);
    	t = clock() - t; //tempo final - tempo inicial
@@ -694,6 +727,7 @@ int main(){
     	vetor2[i] = rand();//Cria um vetor com numeros aleatorios
 	}
 	printf("Ordenando Vetor: QuickSort\n");
+	t = 0;
 	t = clock(); //armazena tempo
    	Quick(vetor2, 0, 10000-1);
    	t = clock() - t; //tempo final - tempo inicial	
@@ -702,13 +736,14 @@ int main(){
 	fprintf(file, "QuickSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
 
 
-	//Execu��o HeapSort
+	//Execuï¿½ï¿½o HeapSort
 
 	printf("\nCriando Vetor\n");
     for(i=0;i<10000;i++){    	
     	vetor2[i] = rand();//Cria um vetor com numeros aleatorios
 	}
-	printf("Ordenando Vetor: HeapSort\n");    
+	printf("Ordenando Vetor: HeapSort\n");  
+	t = 0;  
 	t = clock(); //armazena tempo    
 	heapsort(vetor2,10000);
 	t = clock() - t; //tempo final - tempo inicial	
@@ -717,12 +752,13 @@ int main(){
 	fprintf(file, "HeapSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
 
 	
-	//Execu��o do BucketSort
+	//Execuï¿½ï¿½o do BucketSort
 	printf("\nCriando Vetor\n");
     for(i=0;i<10000;i++){    	
     	vetor2[i] = rand();//Cria um vetor com numeros aleatorios
 	}
-	printf("Ordenando Vetor: BucketSort\n");    
+	printf("Ordenando Vetor: BucketSort\n");  
+	t = 0;  
 	t = clock(); //armazena tempo    
 	bucketSort(vetor2,10000);
 	t = clock() - t; //tempo final - tempo inicial
@@ -731,14 +767,15 @@ int main(){
 	fprintf(file, "BucketSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
 
 	
-	//Execu��o do selection_sort    
+	//Execuï¿½ï¿½o do selection_sort    
 	printf("\nCriando Vetor\n");
     for(i=0;i<10000;i++){    	
     	vetor2[i] = rand();//Cria um vetor com numeros aleatorios
 	} 
-	printf("Ordenando Vetor: SelectionSort\n");   
+	printf("Ordenando Vetor: SelectionSort\n"); 
+	t = 0;  
 	t = clock(); //armazena tempo
- 	selection_sort(vetor2,10000);//Faz a ordena��o do vetor
+ 	selection_sort(vetor2,10000);//Faz a ordenaï¿½ï¿½o do vetor
  	t = clock() - t; //tempo final - tempo inicial
 	
  	printf("Vetor ordenado\n");
@@ -748,15 +785,16 @@ int main(){
 
 	
 	
-	//Execu��o do insertionSort    
+	//Execuï¿½ï¿½o do insertionSort    
 
 	printf("\nCriando Vetor\n");
     for(i=0;i<10000;i++){    	
     	vetor2[i] = rand();//Cria um vetor com numeros aleatorios
 	} 
-	printf("Ordenando Vetor: InsertionSort\n");   
+	printf("Ordenando Vetor: InsertionSort\n");
+	t = 0;   
 	t = clock(); //armazena tempo
- 	insertionSort(vetor2,10000);//Faz a ordena��o do vetor
+ 	insertionSort(vetor2,10000);//Faz a ordenaï¿½ï¿½o do vetor
  	t = clock() - t; //tempo final - tempo inicial 
  	
 	
@@ -765,14 +803,15 @@ int main(){
  	fprintf(file, "InsertionSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
  	
 	    
-	//Execu��o do BubbleSort    
+	//Execuï¿½ï¿½o do BubbleSort    
 	printf("\nCriando Vetor\n");
     for(i=0;i<10000;i++){    	
     	vetor2[i] = rand();//Cria um vetor com numeros aleatorios
 	} 
-	printf("Ordenando Vetor: BubbleSort\n");   
+	printf("Ordenando Vetor: BubbleSort\n");
+	t = 0;   
 	t = clock(); //armazena tempo
- 	BubbleSort(vetor2,10000);//Faz a ordena��o do vetor
+ 	BubbleSort(vetor2,10000);//Faz a ordenaï¿½ï¿½o do vetor
  	t = clock() - t; //tempo final - tempo inicial 
  	
  	printf("Vetor ordenado\n");
@@ -783,7 +822,7 @@ int main(){
 	
 	//Ordenando Vetor de Tamanho 100000
 	fprintf(file,"\nVetor de Tamanho 100000\n");
-	printf("\nVetor de Tamanho100000r\n");
+	printf("\nVetor de Tamanho 100000\n");
     
     //BinaryinsertionSort
    
@@ -792,6 +831,7 @@ int main(){
     	vetor[i] = rand();//Cria um vetor com numeros aleatorios
 	}
 	printf("Ordenando Vetor: BinaryInsertionSort\n");
+	t = 0;
 	t = clock(); //armazena tempo
     BinaryinsertionSort(vetor, 100000);
    	t = clock() - t; //tempo final - tempo inicial
@@ -806,6 +846,7 @@ int main(){
     	vetor[i] = rand();//Cria um vetor com numeros aleatorios
 	}
 	printf("Ordenando Vetor: MergeSort\n");
+	t = 0;
 	t = clock(); //armazena tempo
    	mergesort(0, 100000-1, vetor);
    	t = clock() - t; //tempo final - tempo inicial
@@ -820,6 +861,7 @@ int main(){
     	vetor[i] = rand();//Cria um vetor com numeros aleatorios
 	}
 	printf("Ordenando Vetor: QuickSort\n");
+	t = 0;
 	t = clock(); //armazena tempo
    	Quick(vetor, 0, 100000-1);
    	t = clock() - t; //tempo final - tempo inicial	
@@ -828,13 +870,14 @@ int main(){
 	fprintf(file, "QuickSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
 
 
-	//Execu��o HeapSort
+	//Execuï¿½ï¿½o HeapSort
 
 	printf("\nCriando Vetor\n");
     for(i=0;i<100000;i++){    	
     	vetor[i] = rand();//Cria um vetor com numeros aleatorios
 	}
-	printf("Ordenando Vetor: HeapSort\n");    
+	printf("Ordenando Vetor: HeapSort\n");
+	t = 0;    
 	t = clock(); //armazena tempo    
 	heapsort(vetor,100000);
 	t = clock() - t; //tempo final - tempo inicial	
@@ -843,12 +886,13 @@ int main(){
 	fprintf(file, "HeapSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
 
 	
-	//Execu��o do BucketSort
+	//Execuï¿½ï¿½o do BucketSort
 	printf("\nCriando Vetor\n");
     for(i=0;i<100000;i++){    	
     	vetor[i] = rand();//Cria um vetor com numeros aleatorios
 	}
-	printf("Ordenando Vetor: BucketSort\n");    
+	printf("Ordenando Vetor: BucketSort\n");
+	t = 0;    
 	t = clock(); //armazena tempo    
 	bucketSort(vetor,100000);
 	t = clock() - t; //tempo final - tempo inicial
@@ -857,14 +901,15 @@ int main(){
 	fprintf(file, "BucketSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
 
 	
-	//Execu��o do selection_sort    
+	//Execuï¿½ï¿½o do selection_sort    
 	printf("\nCriando Vetor\n");
     for(i=0;i<100000;i++){    	
     	vetor[i] = rand();//Cria um vetor com numeros aleatorios
 	} 
-	printf("Ordenando Vetor: SelectionSort\n");   
+	printf("Ordenando Vetor: SelectionSort\n");
+	t = 0;   
 	t = clock(); //armazena tempo
- 	selection_sort(vetor,100000);//Faz a ordena��o do vetor
+ 	selection_sort(vetor,100000);//Faz a ordenaï¿½ï¿½o do vetor
  	t = clock() - t; //tempo final - tempo inicial
 	
  	printf("Vetor ordenado\n");
@@ -874,15 +919,16 @@ int main(){
 
 	
 	
-	//Execu��o do insertionSort    
+	//Execuï¿½ï¿½o do insertionSort    
 
 	printf("\nCriando Vetor\n");
     for(i=0;i<100000;i++){    	
     	vetor[i] = rand();//Cria um vetor com numeros aleatorios
 	} 
-	printf("Ordenando Vetor: InsertionSort\n");   
+	printf("Ordenando Vetor: InsertionSort\n");
+	t = 0;   
 	t = clock(); //armazena tempo
- 	insertionSort(vetor,100000);//Faz a ordena��o do vetor
+ 	insertionSort(vetor,100000);//Faz a ordenaï¿½ï¿½o do vetor
  	t = clock() - t; //tempo final - tempo inicial 
  	
 	
@@ -891,14 +937,15 @@ int main(){
  	fprintf(file, "InsertionSort: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));//Escreve no arquivo
  	
 	    
-	//Execu��o do BubbleSort    
+	//Execuï¿½ï¿½o do BubbleSort    
 	printf("\nCriando Vetor\n");
     for(i=0;i<100000;i++){    	
     	vetor[i] = rand();//Cria um vetor com numeros aleatorios
 	} 
-	printf("Ordenando Vetor: BubbleSort\n");   
+	printf("Ordenando Vetor: BubbleSort\n");  
+	t = 0; 
 	t = clock(); //armazena tempo
- 	BubbleSort(vetor,100000);//Faz a ordena��o do vetor
+ 	BubbleSort(vetor,100000);//Faz a ordenaï¿½ï¿½o do vetor
  	t = clock() - t; //tempo final - tempo inicial 
  	
  	printf("Vetor ordenado\n");
