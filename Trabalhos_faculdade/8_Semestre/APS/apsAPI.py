@@ -119,6 +119,8 @@ def delete_data(item_id: int):
 
 if __name__ == "__main__":
 
+    secret_key2 = input(print("Insira a senha: "))
+
     def verify_token(token, secret_key):
         try:
             # Decodificar o token
@@ -133,8 +135,7 @@ if __name__ == "__main__":
             return False
 
     # Defina a chave secreta para assinar o token
-    secret_key = 'jwt-key'
-    secret_key2 = 'jwt-key2'
+    secret_key = 'daniel123'
 
     # Criar um payload (dados que você deseja incluir no token)
     payload = {
@@ -149,7 +150,7 @@ if __name__ == "__main__":
 
     # Exemplo de uso:
     token_to_verify = token
-    if(verify_token(token_to_verify, secret_key) == True):
+    if(verify_token(token_to_verify, secret_key2) == True):
         uvicorn.run(app, host="127.0.0.1", port=8000)
     else:
         print("Impossivel conectar sem token")
