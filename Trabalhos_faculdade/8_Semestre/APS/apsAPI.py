@@ -6,7 +6,6 @@ import datetime
 app = FastAPI()
 
 # https://www.kaggle.com/datasets/shivd24coder/pokemon-card-collection-dataset/
-
 data = [
     {
         "id": 1,
